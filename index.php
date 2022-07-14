@@ -1,5 +1,45 @@
 <?php
 $is_auth = rand(0, 1);
+$mas_category = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
+$mmas_ad = [
+    [
+        'name' => '2014 Rossignol District Snowboard',
+        'category' => 'Доски и лыжи',
+        'price' => '10999',
+        'img_url' => 'img/lot-1.jpg'
+    ],
+    [
+        'name' => 'DC Ply Mens 2016/2017 Snowboard',
+        'category' => 'Доски и лыжи',
+        'price' => '159999',
+        'img_url' => 'img/lot-2.jpg'
+    ],
+    [
+        'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
+        'category' => 'Крепления',
+        'price' => '8000',
+        'img_url' => 'img/lot-3.jpg'
+    ],
+    [
+        'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
+        'category' => 'Ботинки',
+        'price' => '10999',
+        'img_url' => 'img/lot-4.jpg'
+    ],
+    [
+        'name' => 'Куртка для сноуборда DC Mutiny Charocal',
+        'category' => 'Одежда',
+        'price' => '7500',
+        'img_url' => 'img/lot-5.jpg'
+    ],
+    [
+        'name' => 'Маска Oakley Canopy',
+        'category' => 'Разное',
+        'price' => '5400',
+        'img_url' => 'img/lot-6.jpg'
+    ]
+
+];
 
 $user_name = 'Natasha'; // укажите здесь ваше имя
 ?>
@@ -55,9 +95,15 @@ $user_name = 'Natasha'; // укажите здесь ваше имя
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
             <!--заполните этот список из массива категорий-->
+            <?php
+            $index = 0;
+            $num = count($mas_category);
+            while ($index < $num): ?>
             <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html">Имя категории</a>
+                <a class="promo__link" href="pages/all-lots.html"><?= $mas_category[$index] ?></a>
             </li>
+            <?php $index++; ?>
+            <?php endwhile; ?>
         </ul>
     </section>
     <section class="lots">
@@ -66,17 +112,21 @@ $user_name = 'Natasha'; // укажите здесь ваше имя
         </div>
         <ul class="lots__list">
             <!--заполните этот список из массива с товарами-->
+            <?php
+            $index = 0;
+            $num = count($mmas_ad);
+            while ($index < $num): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
-                    <img src="" width="350" height="260" alt="">
+                    <img src="<?= $mmas_ad[$index]['img_url'] ?>" width="350" height="260" alt="">
                 </div>
                 <div class="lot__info">
-                    <span class="lot__category">Название категории</span>
-                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html">Название товара</a></h3>
+                    <span class="lot__category"><?= $mmas_ad[$index]['category'] ?></span>
+                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= $mmas_ad[$index]['name'] ?></a></h3>
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost">цена<b class="rub">р</b></span>
+                            <span class="lot__cost"><?= $mmas_ad[$index]['price'] ?><b class="rub">р</b></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
@@ -84,6 +134,8 @@ $user_name = 'Natasha'; // укажите здесь ваше имя
                     </div>
                 </div>
             </li>
+            <?php $index++; ?>
+            <?php endwhile; ?>
         </ul>
     </section>
 </main>
@@ -93,9 +145,15 @@ $user_name = 'Natasha'; // укажите здесь ваше имя
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
+            <?php
+            $index = 0;
+            $num = count($mmas_ad);
+            while ($index < $num): ?>
             <li class="nav__item">
-                <a href="pages/all-lots.html">Название категории</a>
+                <a href="pages/all-lots.html"><?= $mas_category[$index] ?></a>
             </li>
+            <?php $index++; ?>
+            <?php endwhile; ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
