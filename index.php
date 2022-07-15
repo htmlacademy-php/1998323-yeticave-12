@@ -122,13 +122,7 @@ $user_name = 'Natasha'; // укажите здесь ваше имя
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена: </span>
                             <span class="lot__cost">
-                            <?php 
-                            $productPrice = $product['price']; ?>
-                            <?php function formatPrice($productPrice)
-                            {
-                                $res = number_format($productPrice, $decimals = 0, $decimal_separator = ".", $thousands_separator = " ") . ' ₽';
-                                return $res;
-                            }; ?>
+                            <?php $productPrice = $product['price']; ?>
                             <?=formatPrice($productPrice); ?>
                             </span>
                         </div>
@@ -200,5 +194,11 @@ $user_name = 'Natasha'; // укажите здесь ваше имя
 
 <script src="flatpickr.js"></script>
 <script src="script.js"></script>
+<?php function formatPrice($productPrice)
+    {
+        $res = number_format($productPrice, $decimals = 0, $decimal_separator = ".", $thousands_separator = " ") . ' ₽';
+        return $res;
+    } 
+?>
 </body>
 </html>
