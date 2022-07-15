@@ -96,14 +96,11 @@ $user_name = 'Natasha'; // укажите здесь ваше имя
         <ul class="promo__list">
             <!--заполните этот список из массива категорий-->
             <?php
-            $index = 0;
-            $num = count($mas_category);
-            while ($index < $num): ?>
+            foreach ($mas_category as $category):?>
             <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html"><?= $mas_category[$index] ?></a>
+                <a class="promo__link" href="pages/all-lots.html"><?= $category ?></a>
             </li>
-            <?php $index++; ?>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
         </ul>
     </section>
     <section class="lots">
@@ -143,11 +140,11 @@ $user_name = 'Natasha'; // укажите здесь ваше имя
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
             <?php
-            for ($index = 0; $index < count($mas_category); $index++): ?>
+            foreach ($mas_category as $category):?>
             <li class="nav__item">
-                <a href="pages/all-lots.html"><?= $mas_category[$index] ?></a>
+                <a href="pages/all-lots.html"><?= $category ?></a>
             </li>
-            <?php endfor; ?>
+            <?php endforeach; ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
