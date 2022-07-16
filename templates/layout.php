@@ -38,13 +38,19 @@
                 </li>
             </ul>
         <?php endif; ?>
-        <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
 
         </nav>
     </div>
 </header>
+<?php require_once ('helpers.php'); 
+use function helpers\include_template as include_template;
+?>
+<?php require_once ('templates/data.php'); ?>
 
-<?php $main ?>
+<?php $param_main = ['mmas_ad' => $mmas_ad, 'mas_category' => $mas_category];
+
+$main = include_template('main.php', $param_main);
+print($main); ?>
 </div>
 
 <footer class="main-footer">
