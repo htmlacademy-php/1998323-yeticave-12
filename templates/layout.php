@@ -1,3 +1,4 @@
+<?php require_once ('templates/data.php'); ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -20,7 +21,6 @@
             <input class="main-header__search-btn" type="submit" name="find" value="Найти">
         </form>
         <a class="main-header__add-lot button" href="pages/add-lot.html">Добавить лот</a>
-
         <nav class="user-menu">
         <?php if ($is_auth == 1): ?>
             <div class="user-menu__logged">
@@ -43,14 +43,10 @@
     </div>
 </header>
 <?php require_once ('helpers.php'); 
-use function helpers\include_template as include_template;
-?>
-<?php require_once ('templates/data.php'); ?>
-
-<?php $param_main = ['mmas_ad' => $mmas_ad, 'mas_category' => $mas_category];
-
+$param_main = ['mmas_ad' => $mmas_ad, 'mas_category' => $mas_category];
 $main = include_template('main.php', $param_main);
-print($main); ?>
+print($main); 
+?>
 </div>
 
 <footer class="main-footer">
@@ -107,8 +103,8 @@ print($main); ?>
     </div>
 </footer>
 
-<script src="flatpickr.js"></script>
-<script src="script.js"></script>
+<script src="../flatpickr.js"></script>
+<script src="../script.js"></script>
 
 </body>
 </html>
