@@ -36,8 +36,9 @@
                             <?=formatPrice($productPrice); ?>
                             </span>
                         </div>
-                        <div class="lot__timer timer">
-                            12:23
+                        <?php $productTime = htmlspecialchars($product['dtime']); ?>
+                        <div class="lot__timer timer <?=timeoutClass($productTime);?>" ?>
+                            <?=timeout($productTime); ?>
                         </div>
                     </div>
                 </div>
@@ -47,9 +48,32 @@
     </section>
     
 </main>
-<?php function formatPrice($productPrice)
+<?php 
+    function formatPrice($productPrice)
     {
         $res = number_format($productPrice, $decimals = 0, $decimal_separator = ".", $thousands_separator = " ") . ' ₽';
         return $res;
-    } 
-    ?>
+    }?>
+<?php
+    function timeout($productTime)
+    {
+        $now=time();
+        $dedlain_date = floor(strtotime($productTime) - $now);
+        $time_min = $dedlain_date % 60;
+        $time_hour = floor($dedlain_date / 3600);
+        $result = $time_hour . ' : ' . $time_min;
+        return $result;
+    }
+?>
+<?php
+    function timeoutClass($productTime)
+    {
+        $now=time();
+        $dedlain_date = floor(strtotime($productTime) - $now);
+        $time_hour = floor($dedlain_date / 3600);
+        if ($time_hour == 0)
+            return 'timer--finishing';
+        else
+            return '';
+    }
+?>
