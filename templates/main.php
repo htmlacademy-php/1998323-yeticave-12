@@ -57,10 +57,8 @@
 <?php
     function timeout($productTime)
     {
-        $now=time();
-        $dedlain_date = floor(strtotime($productTime) - $now);
-        $time_min = $dedlain_date % 60;
-        $time_hour = floor($dedlain_date / 3600);
+        $time_min = floor(strtotime($productTime) - time()) % 60;
+        $time_hour = floor((strtotime($productTime) - time()) / 3600);
         $result = $time_hour . ' : ' . $time_min;
         return $result;
     }
@@ -68,12 +66,10 @@
 <?php
     function timeoutClass($productTime)
     {
-        $now=time();
-        $dedlain_date = floor(strtotime($productTime) - $now);
-        $time_hour = floor($dedlain_date / 3600);
-        if ($time_hour == 0)
-            return 'timer--finishing';
+        $time_hour = floor((strtotime($productTime) - time()) / 3600);
+        if ($time_hour === 0)
+            {return 'timer--finishing';}
         else
-            return '';
+            {return '';}
     }
 ?>
