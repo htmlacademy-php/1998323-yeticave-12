@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 25 2022 г., 10:52
+-- Время создания: Июл 25 2022 г., 12:44
 -- Версия сервера: 5.7.38
 -- Версия PHP: 7.4.29
 
@@ -56,7 +56,7 @@ CREATE TABLE `lot` (
   `lot_id` int(100) NOT NULL,
   `data_lot` datetime NOT NULL COMMENT 'дата создания: дата и время, когда этот лот был создан пользователем',
   `name_lot` varchar(100) NOT NULL COMMENT 'название: задается пользователем',
-  `description_lot` varchar(5000) NOT NULL COMMENT 'описание: задается пользователем',
+  `description_lot` text NOT NULL COMMENT 'описание: задается пользователем',
   `price` mediumint(9) NOT NULL,
   `end_time_lot` datetime NOT NULL,
   `category_id` varchar(100) NOT NULL,
@@ -74,11 +74,11 @@ CREATE TABLE `lot` (
 
 CREATE TABLE `user` (
   `user_id` int(255) NOT NULL COMMENT 'Идентификатор пользователя',
-  `name` varchar(50) DEFAULT NULL COMMENT 'Имя пользователя',
+  `name` varchar(255) DEFAULT NULL COMMENT 'Имя пользователя',
   `password` varchar(20) NOT NULL COMMENT 'Пароль пользователя',
   `data_registration` datetime NOT NULL COMMENT 'Дата регистрации пользователя',
-  `email` varchar(40) NOT NULL COMMENT 'email пользователя',
-  `contacts` varchar(1000) DEFAULT NULL COMMENT 'Контакты пользователя',
+  `email` varchar(255) NOT NULL COMMENT 'email пользователя',
+  `contacts` varchar(255) DEFAULT NULL COMMENT 'Контакты пользователя',
   `lot_id` int(100) NOT NULL,
   `bet_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Пользователи';
