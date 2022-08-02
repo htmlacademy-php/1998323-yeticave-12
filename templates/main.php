@@ -1,4 +1,20 @@
 <?php require_once ('templates/data.php'); ?>
+<?php
+$con = mysqli_connect("localhost", "root", "root", "yeticave");
+$sql1 = "SELECT category_id, category_name FROM category";
+$result1 = mysqli_query($con, $sql1);
+$mas_category = mysqli_fetch_all($result1, MYSQLI_ASSOC);
+$sql2 = "SELECT category_id, name_lot, img_url, price FROM lot";
+$result2 = mysqli_query($con, $sql2);
+$products = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+if (!$result1 or !$result2) {
+	$error = mysqli_error($con);
+	print("Ошибка MySQL: " . $error);
+}
+mysqli_set_charset($con, "utf8");
+?>
+
+
 <main class="container">
     <section class="promo">
         <h2 class="promo__title">Нужен стафф для катки?</h2>
@@ -7,8 +23,9 @@
             <!--заполните этот список из массива категорий-->
             <?php
             foreach ($mas_category as $category):?>
-            <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html"><?= htmlspecialchars($category) ?></a>
+            <li class="promo__item promo__item--<?= htmlspecialchars($category['category_id']) ?>">
+                <a class="promo__link" href="pages/all-lots.html">
+                    <?= htmlspecialchars($category['category_name']) ?></a>
             </li>
             <?php endforeach; ?>
         </ul>
@@ -20,14 +37,14 @@
         <ul class="lots__list">
             <!--заполните этот список из массива с товарами-->
             <?php
-            foreach ($mmas_ad as $product): ?>
+            foreach ($products as $product): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
                     <img src="<?= htmlspecialchars($product['img_url']) ?>" width="350" height="260" alt="">
                 </div>
                 <div class="lot__info">
-                    <span class="lot__category"><?= htmlspecialchars($product['category']) ?></span>
-                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= htmlspecialchars($product['name']) ?></a></h3>
+                    <span class="lot__category"><?= htmlspecialchars($product['category_name']) ?></span>
+                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= htmlspecialchars($product['name_lot']) ?></a></h3>
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена: </span>
@@ -36,7 +53,7 @@
                             <?=formatPrice($productPrice); ?>
                             </span>
                         </div>
-                        <?php $productTime = htmlspecialchars($product['dtime']); ?>
+                        <?php $productTime = htmlspecialchars($product['end_time_lot']); ?>
                         <div class="lot__timer timer <?=timeoutClass($productTime);?>" ?>
                             <?=timeout($productTime); ?>
                         </div>

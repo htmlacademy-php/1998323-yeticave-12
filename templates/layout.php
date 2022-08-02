@@ -1,4 +1,20 @@
-<?php require_once ('templates/data.php'); ?>
+<?php require_once ('templates/data.php'); 
+$con = mysqli_connect("localhost", "root", "root", "yeticave");
+$sql = "SELECT category_name FROM category";
+$result = mysqli_query($con, $sql);
+
+if (!$result) {
+	$error = mysqli_error($con);
+	print("Ошибка MySQL: " . $error);
+}
+
+
+
+$mas_category = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -54,9 +70,9 @@ print($main);
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
             <?php
-            foreach ($mas_category as $category):?>
+                foreach ($mas_category as $category):?>
             <li class="nav__item">
-                <a href="pages/all-lots.html"><?= htmlspecialchars($category) ?></a>
+                <a href="pages/all-lots.html"><?=$category['category_name'] ?></a>
             </li>
             <?php endforeach; ?>
         </ul>

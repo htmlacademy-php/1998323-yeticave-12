@@ -7,7 +7,7 @@ INSERT INTO `bet` (`bet_id`, `date_bet`, `summa_bet`, `user_id`, `lot_id`) VALUE
 select category_name from category;
 
 -- получить самые новые, открытые лоты. Каждый лот должен включать название, стартовую цену, ссылку на изображение, цену, название категории;
-select name_lot, price, img_url, price_now, category_id from lot where open_lot='1';
+select name_lot, price, img_url, price_now, category_id from lot where open_lot='1' sort by date_lot desc;
 
 -- показать лот по его ID. Получите также название категории, к которой принадлежит лот;
 SELECT lot_id, category_name FROM `lot` LEFT JOIN category ON lot.category_id = category.category_id  
