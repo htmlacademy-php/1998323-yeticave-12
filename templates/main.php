@@ -1,7 +1,9 @@
 <?php require_once ('templates/data.php'); 
+$con = mysqli_connect("localhost", "root", "root", "yeticave");
 $sql_category = "SELECT category_id, category_name FROM category";
 $result_category = mysqli_query($con, $sql_category);
 $mas_category = mysqli_fetch_all($result_category, MYSQLI_ASSOC);
+
 $sql_lot = "SELECT category_id, name_lot, img_url, price FROM lot";
 $result_lot = mysqli_query($con, $sql_lot);
 $products = mysqli_fetch_all($result_lot, MYSQLI_ASSOC);
