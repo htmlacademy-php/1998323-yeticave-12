@@ -1,17 +1,14 @@
-<?php require_once ('templates/data.php'); ?>
-<?php
-$con = mysqli_connect("localhost", "root", "root", "yeticave");
-$sql1 = "SELECT category_id, category_name FROM category";
-$result1 = mysqli_query($con, $sql1);
-$mas_category = mysqli_fetch_all($result1, MYSQLI_ASSOC);
-$sql2 = "SELECT category_id, name_lot, img_url, price FROM lot";
-$result2 = mysqli_query($con, $sql2);
-$products = mysqli_fetch_all($result2, MYSQLI_ASSOC);
-if (!$result1 or !$result2) {
+<?php require_once ('templates/data.php'); 
+$sql_category = "SELECT category_id, category_name FROM category";
+$result_category = mysqli_query($con, $sql_category);
+$mas_category = mysqli_fetch_all($result_category, MYSQLI_ASSOC);
+$sql_lot = "SELECT category_id, name_lot, img_url, price FROM lot";
+$result_lot = mysqli_query($con, $sql_lot);
+$products = mysqli_fetch_all($result_lot, MYSQLI_ASSOC);
+if (!$result_category or !$result_lot) {
 	$error = mysqli_error($con);
 	print("Ошибка MySQL: " . $error);
 }
-mysqli_set_charset($con, "utf8");
 ?>
 
 

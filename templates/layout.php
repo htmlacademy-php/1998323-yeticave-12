@@ -1,18 +1,11 @@
 <?php require_once ('templates/data.php'); 
-$con = mysqli_connect("localhost", "root", "root", "yeticave");
-$sql = "SELECT category_name FROM category";
-$result = mysqli_query($con, $sql);
-
-if (!$result) {
+$sql_category = "SELECT category_name FROM category";
+$result_category = mysqli_query($con, $sql_category);
+if (!$result_category) {
 	$error = mysqli_error($con);
 	print("Ошибка MySQL: " . $error);
 }
-
-
-
-$mas_category = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-
+$mas_category = mysqli_fetch_all($result_category, MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
