@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 26 2022 г., 12:08
+-- Время создания: Авг 02 2022 г., 12:29
 -- Версия сервера: 5.7.38
 -- Версия PHP: 7.4.29
 
@@ -107,13 +107,7 @@ INSERT INTO `lot` (`lot_id`, `data_lot`, `name_lot`, `description_lot`, `price`,
 (18, '2022-07-26 10:59:55', 'Крепления', 'Крепления Union Contact Pro 2015 года размер L/XL', 8000, 'img/lot-3.jpg', '2022-07-27 10:59:55', 'attachment', 200, 2, NULL, NULL, NULL, 1),
 (19, '2022-07-26 10:59:55', 'Ботинки для сноуборда DC Mutiny Charocal', 'Ботинки для сноуборда DC Mutiny Charocal', 10999, 'img/lot-4.jpg', '2022-07-29 10:59:55', 'boots', 1000, 3, NULL, NULL, NULL, 1),
 (20, '2022-07-26 10:59:55', 'Куртка для сноуборда DC Mutiny Charocal', 'Куртка для сноуборда DC Mutiny Charocal', 7500, 'img/lot-5.jpg', '2022-07-30 10:59:55', 'clothing', 500, 3, NULL, NULL, NULL, 1),
-(21, '2022-07-26 10:59:55', 'Маска Oakley Canopy', 'Маска Oakley Canopy', 5400, 'img/lot-6.jpg', '2022-08-26 10:59:55', 'other', 150, 4, NULL, NULL, NULL, 1),
-(22, '2022-07-26 10:59:55', '2014 Rossignol District Snowboard', '2014 Rossignol District Snowboard', 10999, 'img/lot-1.jpg', '2022-07-29 10:59:55', 'boards', 100, 1, NULL, NULL, NULL, 1),
-(23, '2022-07-30 10:59:55', 'DC Ply Mens 2016/2017 Snowboard', 'DC Ply Mens 2016/2017 Snowboard', 159999, 'img/lot-2.jpg', '2022-07-28 10:59:55', 'boards', 1000, 1, NULL, NULL, NULL, 1),
-(24, '2022-07-26 10:59:55', 'Крепления Union Contact Pro 2015 года размер L/XL', 'Крепления Union Contact Pro 2015 года размер L/XL', 8000, 'img/lot-3.jpg', '2022-07-27 10:59:55', 'attachment', 200, 2, NULL, NULL, NULL, 1),
-(25, '2022-07-26 10:59:55', 'Ботинки для сноуборда DC Mutiny Charocal', 'Ботинки для сноуборда DC Mutiny Charocal', 10999, 'img/lot-4.jpg', '2022-07-29 10:59:55', 'boots', 1000, 3, NULL, NULL, NULL, 1),
-(26, '2022-07-26 10:59:55', 'Куртка для сноуборда DC Mutiny Charocal', 'Куртка для сноуборда DC Mutiny Charocal', 7500, 'img/lot-5.jpg', '2022-07-30 10:59:55', 'clothing', 500, 3, NULL, NULL, NULL, 1),
-(27, '2022-07-26 10:59:55', 'Маска Oakley Canopy', 'Маска Oakley Canopy', 5400, 'img/lot-6.jpg', '2022-08-26 10:59:55', 'other', 150, 4, NULL, NULL, NULL, 0);
+(21, '2022-07-26 10:59:55', 'Маска Oakley Canopy', 'Маска Oakley Canopy', 5400, 'img/lot-6.jpg', '2022-08-26 10:59:55', 'other', 150, 4, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -197,7 +191,7 @@ ALTER TABLE `lot`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор пользователя', AUTO_INCREMENT=9;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор пользователя', AUTO_INCREMENT=5;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
